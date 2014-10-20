@@ -1,8 +1,9 @@
-target
-.history
+target/
+
 .idea/
-*.iml
+
 .idea_modules/
-/.classpath
-/.project
-/.settings
+
+*.ipr
+*.iws
+*.iml
