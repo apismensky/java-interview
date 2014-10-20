@@ -1,6 +1,5 @@
 target
 .history
-.idea/
 *.iml
 .idea_modules/
 /.classpath
