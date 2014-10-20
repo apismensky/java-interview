@@ -1,8 +1,8 @@
 target
 .history
-/.idea
-/*.iml
-/.idea_modules
+.idea/
+*.iml
+.idea_modules/
 /.classpath
 /.project
 /.settings
