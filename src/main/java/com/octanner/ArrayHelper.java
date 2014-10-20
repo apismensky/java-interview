@@ -6,6 +6,7 @@ package com.octanner;
 public class ArrayHelper {
 
     public static int[] reverse(int[] input) {
+        //throw new UnsupportedOperationException("not implemented");
         if (input == null) {
             throw new IllegalArgumentException("argument can not be null");
         }
