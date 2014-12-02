@@ -11,16 +11,6 @@ public class List {
     private Node head;
     private int size;
 
-    private static class Node {
-        Node(Node linkedNode, Object value) {
-            this.linkedNode = linkedNode;
-            this.value = value;
-        }
-
-        Node linkedNode;
-        Object value;
-    }
-
     /**
      * Construct empty list
      */
