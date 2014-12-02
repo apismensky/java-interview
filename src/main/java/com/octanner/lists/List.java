@@ -119,6 +119,19 @@ public class List {
     }
 
     /**
+     * Functional transformation of the list with using the function
+     * @param f function that will be applied to each element
+     * @return new list after transformation
+     */
+    public List map(Function f) {
+        List newList = new List();
+        for (int i = 0; i < size; i++) {
+           newList.add(f.apply(this.get(i)));
+        }
+        return newList;
+    }
+
+    /**
      * String representation of the list
      * Example: new List(1,2,3).toString() should produce {3,2,1}
      * @return that represents the list

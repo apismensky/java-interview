@@ -233,4 +233,13 @@ public class ListTest {
     public void testIndexNotFound() {
         assertEquals(-1, new List(1, 2, 4).indexOf(7));
     }
+
+    @Test
+    public void testMap() {
+        assertEquals(new List(8, 4, 2), new List(1, 2, 4).map(new Function() {
+            public Object apply(Object o) {
+                return (Integer) o * 2;
+            }
+        }));
+    }
 }
