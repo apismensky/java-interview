@@ -15,7 +15,7 @@ import com.octanner.lists.Stack;
 public class ReversePolish {
 
 
-    public int calculate(String[] args) {
+    public static int calculate(String[] args) {
         if (args == null) {
             throw new IllegalArgumentException("Array can not be null");
         }
@@ -24,34 +24,30 @@ public class ReversePolish {
             return 0;
         }
 
-        Stack stack = new Stack();
+        Stack<Integer> stack = new Stack<Integer>();
 
-        for (int i = 0; i < args.length; i++) {
-            String e = args[i];
+        for (String e : args) {
             Operation operation = Operation.value(e);
             if (operation != null) {
                 // Perform operation
                 try {
-                    int first = (Integer) stack.pop();
-                    int second = (Integer) stack.pop();
-                    int r = operation.getAction().apply(second, first);
-                    stack.push(r);
-                }
-                catch (NullPointerException npe) {
+                    int first = stack.pop();
+                    int second = stack.pop();
+                    stack.push(operation.getAction().apply(second, first));
+                } catch (NullPointerException npe) {
                     throw new IllegalArgumentException("Invalid input array", npe);
                 }
 
-            }
-            else {
+            } else {
                 // Put number in the stack
                 stack.push(getNumber(e));
             }
         }
-        return (Integer)stack.pop();
+        return stack.pop();
     }
 
     @VisibleForTesting
-    int getNumber(String a) {
+    static int getNumber(String a) {
         return Integer.parseInt(a);
     }
 }
