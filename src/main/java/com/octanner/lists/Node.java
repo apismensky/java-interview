@@ -7,6 +7,6 @@ class Node<T> {
         this.value = value;
     }
 
-    Node linkedNode;
+    Node<T> linkedNode;
     T value;
 }
