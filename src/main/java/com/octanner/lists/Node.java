@@ -2,7 +2,7 @@ package com.octanner.lists;
 
 class Node<T> {
 
-    Node(Node linkedNode, T value) {
+    Node(Node<T> linkedNode, T value) {
         this.linkedNode = linkedNode;
         this.value = value;
     }

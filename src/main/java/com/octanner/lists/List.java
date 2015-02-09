@@ -113,8 +113,8 @@ public class List<T> {
      * @param f function that will be applied to each element
      * @return new list after transformation
      */
-    public List map(Function f) {
-        List newList = new List();
+    public List map(Function<T> f) {
+        List<T> newList = new List<T>();
         for (int i = 0; i < size; i++) {
            newList.add(f.apply(this.get(i)));
         }

@@ -5,23 +5,23 @@ package com.octanner.lists;
  * That's why we need to keep both tail and head
  */
 public class Queue<T> {
-    private class QNode<T> {
-        QNode(QNode<T> next, QNode<T> prev, T value) {
+    private class QNode {
+        QNode(QNode next, QNode prev, T value) {
             this.next = next;
             this.prev = prev;
             this.value = value;
         }
-        QNode<T> next;
-        QNode<T> prev;
+        QNode next;
+        QNode prev;
         T value;
     }
-    private QNode<T> head;
-    private QNode<T> tail;
+    private QNode head;
+    private QNode tail;
 
     public Queue<T> add(T o) {
         if (o == null)
             throw new NullPointerException("Can not add null");
-        QNode<T> qNode = new QNode<T>(head, null, o);
+        QNode qNode = new QNode(head, null, o);
         if (this.head != null)
             this.head.prev = qNode;
         if (this.tail == null)
