@@ -1,20 +1,20 @@
 package com.octanner.lists;
 
-public class Stack {
+public class Stack<T> {
 
-    private Node head;
+    private Node<T> head;
 
-    public Stack push(Object o) {
+    public Stack push(T o) {
        if (o == null)
            throw new NullPointerException("Can not push null");
-       this.head = new Node(head, o);
+       this.head = new Node<T>(head, o);
        return this;
     }
 
-    public Object pop() {
+    public T pop() {
         if (head == null)
             throw new NullPointerException("Stack is empty");
-        Object value = this.head.value;
+        T value = this.head.value;
         if (this.head.linkedNode != null)
             this.head = this.head.linkedNode;
         else

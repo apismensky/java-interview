@@ -6,9 +6,9 @@ package com.octanner.lists;
  * The last element in the list has an empty or null link.
  * Allows to store null elements
  */
-public class List {
+public class List<T> {
 
-    private Node head;
+    private Node<T> head;
     private int size;
 
     /**
@@ -20,8 +20,8 @@ public class List {
      * Construct list with given elements
      * @param elements list elements
      */
-    public List(Object... elements) {
-       for (Object element : elements) {
+    public List(T... elements) {
+       for (T element : elements) {
            add(element);
        }
     }
@@ -32,10 +32,10 @@ public class List {
      * @return the element at the specified position in this list
      * @throws IndexOutOfBoundsException if the index is out of range (index < 0 || index >= size())
      */
-    public Object get(int index) {
+    public T get(int index) {
         if (index < 0 || index > size - 1)
             throw new IndexOutOfBoundsException("Illegal index value");
-        Node node = head;
+        Node<T> node = head;
         for (int i = 0; i < size; i++) {
            if (i == index) return node.value;
            node = node.linkedNode;
@@ -56,8 +56,8 @@ public class List {
      * @param value element to be appended to this list
      * @return the instance of the list
      */
-    public List add(Object value) {
-        head = new Node(head, value);
+    public List<T> add(T value) {
+        head = new Node<T>(head, value);
         size++;
         return this;
     }
@@ -70,11 +70,11 @@ public class List {
      * @return the element previously at the specified position
      * @throws IndexOutOfBoundsException if the index is out of range (index < 0 || index >= size())
      */
-    public Object remove(int index) {
+    public T remove(int index) {
         if (index < 0 || index > size - 1)
             throw new IndexOutOfBoundsException("Illegal index value");
-        Node prevNode = null;
-        Node thisNode = head;
+        Node<T> prevNode = null;
+        Node<T> thisNode = head;
 
         for (int i = 0; i < size; i++) {
             if (i == index) {
@@ -96,9 +96,9 @@ public class List {
      * @param o element to search for
      * @return the index of the first occurrence of the specified element in this list, or -1 if this list does not contain the element
      */
-    public int indexOf(Object o) {
+    public int indexOf(T o) {
         if (o == null) return -1;
-        Node node = head;
+        Node<T> node = head;
         for (int i = 0; i < size; i++) {
            if (node.value != null && node.value.equals(o)) {
               return i;
@@ -129,7 +129,7 @@ public class List {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder("{");
-        Node node = head;
+        Node<T> node = head;
         for (int i = 0; i < size; i++) {
             sb.append(node.value);
             if (i != size - 1) {

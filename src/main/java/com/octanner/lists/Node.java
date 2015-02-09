@@ -1,12 +1,12 @@
 package com.octanner.lists;
 
-class Node {
+class Node<T> {
 
-    Node(Node linkedNode, Object value) {
+    Node(Node linkedNode, T value) {
         this.linkedNode = linkedNode;
         this.value = value;
     }
 
     Node linkedNode;
-    Object value;
+    T value;
 }

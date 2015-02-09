@@ -1,5 +1,5 @@
 package com.octanner.lists;
 
-public interface Function {
-    Object apply(Object o);
+public interface Function<T> {
+    T apply(T o);
 }

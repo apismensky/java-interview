@@ -10,11 +10,11 @@ public class ListTest {
      */
     @Test
     public void testAdd() {
-        List list = new List();
+        List<Long> list = new List<Long>();
         assertEquals(0, list.size());
         list.add(7L).add(9L);
         assertEquals(2, list.size());
-        assertEquals(new Long(9), list.get(0));
+        assertEquals(9L, list.get(0).longValue());
         assertEquals(new Long(7), list.get(1));
     }
 
@@ -23,7 +23,7 @@ public class ListTest {
      */
     @Test(expected = IndexOutOfBoundsException.class)
     public void testGetNegative() {
-        new List().get(-1);
+        new List<Long>().get(-1);
     }
 
     /**
@@ -31,7 +31,7 @@ public class ListTest {
      */
     @Test(expected = IndexOutOfBoundsException.class)
     public void testGetEmpty() {
-        new List().get(0);
+        new List<Long>().get(0);
     }
 
     /**
@@ -39,7 +39,7 @@ public class ListTest {
      */
     @Test(expected = IndexOutOfBoundsException.class)
     public void testGetOutOfBound() {
-        new List(6L).get(1);
+        new List<Long>(6L).get(1);
     }
 
     /**
@@ -47,7 +47,7 @@ public class ListTest {
      */
     @Test
     public void testToStringEmpty() {
-        assertEquals("{}", new List().toString());
+        assertEquals("{}", new List<Long>().toString());
     }
 
     /**
@@ -55,7 +55,7 @@ public class ListTest {
      */
     @Test
     public void testToStringOne() {
-        List list = new List(7L);
+        List list = new List<Long>(7L);
         assertEquals(1, list.size());
         assertEquals("{7}", list.toString());
     }
@@ -65,7 +65,7 @@ public class ListTest {
      */
     @Test
     public void testToStringMany() {
-        List list = new List(7L,8L);
+        List list = new List<Long>(7L,8L);
         assertEquals(2, list.size());
         assertEquals("{8,7}", list.toString());
     }
@@ -99,7 +99,7 @@ public class ListTest {
      */
     @Test
     public void testEqualsFalse() {
-        assertNotEquals(new List(1, 2, 3), new List(2, 3, 4));
+        assertNotEquals(new List<Integer>(1, 2, 3), new List<Integer>(2, 3, 4));
     }
 
     /**
@@ -107,7 +107,7 @@ public class ListTest {
      */
     @Test
     public void testEqualsTrue() {
-        assertEquals(new List(1, 2, 3), (new List(1, 2, 3)));
+        assertEquals(new List<Integer>(1, 2, 3), (new List<Integer>(1, 2, 3)));
     }
 
     /**
@@ -115,7 +115,7 @@ public class ListTest {
      */
     @Test
     public void testEqualsDifferentNumber() {
-        assertNotEquals(new List(1, 2, 3, 3), new List(1, 2, 3));
+        assertNotEquals(new List<Integer>(1, 2, 3, 3), new List<Integer>(1, 2, 3));
     }
 
     /**
@@ -123,7 +123,7 @@ public class ListTest {
      */
     @Test
     public void testEqualsWithNull() {
-        assertNotEquals(new List(1, null, 3), (new List(1, null, 3)));
+        assertNotEquals(new List<Integer>(1, null, 3), (new List<Integer>(1, null, 3)));
     }
 
     /**
@@ -131,8 +131,8 @@ public class ListTest {
      */
     @Test
     public void testHashCodeEquals() {
-        List first = new List(1, 2, 3);
-        List second = new List(1, 2, 3);
+        List first = new List<Integer>(1, 2, 3);
+        List second = new List<Integer>(1, 2, 3);
         assertEquals(first, second);
         assertEquals(first.hashCode(), second.hashCode());
     }
@@ -142,7 +142,7 @@ public class ListTest {
      */
     @Test
     public void testHashCodeWithNull() {
-        List list = new List(1, null, 3);
+        List list = new List<Integer>(1, null, 3);
         assertTrue(list.hashCode() != 0);
     }
 
@@ -167,7 +167,7 @@ public class ListTest {
      */
     @Test
     public void testDeleteOneElem() {
-        List list = new List(5L);
+        List list = new List<Long>(5L);
         assertEquals(5L, list.remove(0));
         assertEquals(0, list.size());
     }
@@ -177,9 +177,9 @@ public class ListTest {
      */
     @Test
     public void testDeleteMiddle() {
-        List list = new List(5L,3L,1L,"Foo","Bar");
-        assertEquals("Foo", list.remove(1));
-        assertEquals(new List(5L,3L,1L,"Bar"), list);
+        List<Long> list = new List<Long>(5L,3L,1L,4L,7L);
+        assertEquals(4, list.remove(1).longValue());
+        assertEquals(new List<Long>(5L,3L,1L,7L), list);
     }
 
     /**
@@ -187,9 +187,9 @@ public class ListTest {
      */
     @Test
     public void testDeleteHead() {
-        List list = new List(5L,3L,1L,"Foo","Bar");
-        assertEquals("Bar", list.remove(0));
-        assertEquals(new List(5L,3L,1L,"Foo"), list);
+        List<Long> list = new List<Long>(5L,3L,1L,4L,7L);
+        assertEquals(7L, list.remove(0).longValue());
+        assertEquals(new List<Long>(5L,3L,1L,4L), list);
     }
 
     /**
@@ -197,9 +197,9 @@ public class ListTest {
      */
     @Test
     public void testDeleteTail() {
-        List list = new List(5L,3L,1L,"Foo","Bar");
-        assertEquals(5L, list.remove(4));
-        assertEquals(new List(3L,1L,"Foo","Bar"), list);
+        List<Long> list = new List<Long>(5L,3L,1L,4L,7L);
+        assertEquals(5L, list.remove(4).longValue());
+        assertEquals(new List<Long>(3L,1L,4L,7L), list);
     }
 
     /**
@@ -207,7 +207,7 @@ public class ListTest {
      */
     @Test
     public void testIndexOfNull() {
-        assertEquals(-1, new List(null, 1L).indexOf(null));
+        assertEquals(-1, new List<Long>(null, 1L).indexOf(null));
     }
 
     /**
@@ -215,7 +215,7 @@ public class ListTest {
      */
     @Test
     public void testIndexEmpty() {
-        assertEquals(-1, new List().indexOf(1L));
+        assertEquals(-1, new List<Long>().indexOf(1L));
     }
 
     /**
@@ -223,7 +223,7 @@ public class ListTest {
      */
     @Test
     public void testIndexFound() {
-        assertEquals(1, new List(1,2,4).indexOf(2));
+        assertEquals(1, new List<Integer>(1,2,4).indexOf(2));
     }
 
     /**
@@ -231,14 +231,14 @@ public class ListTest {
      */
     @Test
     public void testIndexNotFound() {
-        assertEquals(-1, new List(1, 2, 4).indexOf(7));
+        assertEquals(-1, new List<Integer>(1, 2, 4).indexOf(7));
     }
 
     @Test
     public void testMap() {
-        assertEquals(new List(8, 4, 2), new List(1, 2, 4).map(new Function() {
-            public Object apply(Object o) {
-                return (Integer) o * 2;
+        assertEquals(new List<Integer>(8, 4, 2), new List<Integer>(1, 2, 4).map(new Function<Integer>() {
+            public Integer apply(Integer o) {
+                return o * 2;
             }
         }));
     }
