@@ -11,15 +11,12 @@ public class Palindrome {
         }
         String longest = "";
         for (int i = 0; i < input.length(); i++) {
-
             String odd = getLongest(input, i, 0);
             if (odd.length() > longest.length())
                 longest = odd;
-
             String even = getLongest(input, i, 1);
             if (even.length() > longest.length())
                 longest = even;
-
         }
         return longest;
     }
@@ -33,11 +30,10 @@ public class Palindrome {
      * @return
      */
     private static String getLongest(String input, int i, int offset) {
-        int j = 0; // a distance from the currentChar
+        int j = 0;
         while (i >= j && i + j + offset < input.length()) {
-            if (input.charAt(i - j) != input.charAt(i + j + offset)) {
-                break;
-            }
+            if (input.charAt(i - j) != input.charAt(i + j + offset))
+              break;
             j++;
         }
         return input.substring(i - j + 1, i + j + offset);
