@@ -5,12 +5,12 @@ import java.util.Arrays;
 
 /**
  * You are given an n x n 2D matrix representing an image.
- * <prn/>
+ * <p/>
  * Rotate the image by 90 degrees (clockwise).
  * <prn/>
  * Follow up:
  * Could you do this in-place?
- * <prn/>
+ * <p/>
  *  1  2  3 10      14  6  3  1
  *  3  4  5 11  =>  15  7  4  2
  *  6  7  8 12      16  8  5  3
@@ -26,8 +26,8 @@ public class RotateImage {
         if (n > 0 && n != matrix[0].length) {
             throw new IllegalArgumentException("Can process only arrays of N * N");
         }
-        System.out.println("Before: ");
-        prn(matrix);
+//        System.out.println("Before: ");
+//        prn(matrix);
         int[][] res = new int[n][n];
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
@@ -39,8 +39,8 @@ public class RotateImage {
                 matrix[i][j] = res[i][j];
             }
         }
-        System.out.println("After: ");
-        prn(matrix);
+//        System.out.println("After: ");
+//        prn(matrix);
     }
 
     /**
