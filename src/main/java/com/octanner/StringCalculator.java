@@ -1,3 +1,5 @@
+package com.octanner;
+
 /**
  * StringCalculator kata from http://osherove.com/tdd-kata-1/
  */

@@ -1,11 +1,11 @@
+package com.octanner;
+
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
 /**
  * StringCalculatorTest
- * User: michael.felix
- * Date: 11/10/14
  */
 public class StringCalculatorTest {
     @Test
