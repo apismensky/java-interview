@@ -3,6 +3,8 @@ package com.octanner;
 
 public class FibonacciNumbers {
     /**
+     * Complexity: Easy
+     *
      * Generate array of fibonacci numbers
      * 1,1,2,3,5,8 ...
      * where F(N) = F(N-1) + F(N-2)

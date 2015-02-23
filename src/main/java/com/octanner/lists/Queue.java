@@ -1,8 +1,12 @@
 package com.octanner.lists;
 
 /**
+ * Complexity: Easy
+ *
+ * Implement simple Queue
  * Both operations should be a constant time.
  * That's why we need to keep both tail and head
+ *
  */
 public class Queue<T> {
     private class QNode {

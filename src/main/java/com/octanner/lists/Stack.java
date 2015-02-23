@@ -1,5 +1,12 @@
 package com.octanner.lists;
 
+/**
+ * Complexity: Easy
+ *
+ * Implement a simple Stack
+ *
+ * @param <T> Type that we store in the stack
+ */
 public class Stack<T> {
 
     private Node<T> head;

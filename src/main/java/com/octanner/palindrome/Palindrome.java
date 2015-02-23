@@ -1,14 +1,17 @@
 package com.octanner.palindrome;
 
 /**
- * Longest palindromic substring
+ * Complexity: Medium
+ *
+ * Given a string S, find the longest palindromic substring in S.
+ * You may assume that the maximum length of S is 1000, and there exists one unique longest palindromic substring.
+ *
  * Runs as O (N * N)
  */
 public class Palindrome {
     public static String findLongest(String input) {
-        if (input == null || input.isEmpty()) {
+        if (input == null || input.isEmpty())
             throw new IllegalArgumentException("Input string should not be null or empty");
-        }
         String longest = "";
         for (int i = 0; i < input.length(); i++) {
             String odd = getLongest(input, i, 0);

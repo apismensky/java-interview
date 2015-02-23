@@ -43,11 +43,8 @@ public enum Operation {
     }
 
     public static Operation value(String sign) {
-        for (Operation o : Operation.values()) {
-            if (o.getSign().equals(sign)) {
-                return o;
-            }
-        }
+        for (Operation o : Operation.values())
+            if (o.getSign().equals(sign)) return o;
         return null;
     }
 }

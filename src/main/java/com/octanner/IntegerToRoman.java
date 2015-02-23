@@ -1,6 +1,7 @@
 package com.octanner;
 
 /**
+ * Complexity: Medium
  * Given an integer, convert it to a roman numeral.
  * Input is guaranteed to be within the range from 1 to 3999.
  *
@@ -51,7 +52,7 @@ public class IntegerToRoman {
         int position = 0; // from right to left
         while (num > 0) {
             int digit = num % 10;
-            num = num / 10;
+            num /= 10;
             RomanToDec rl = RomanToDec.getRoman(position);
             StringBuilder digitRoman = new StringBuilder();
             if (digit > 0 && digit < 4)

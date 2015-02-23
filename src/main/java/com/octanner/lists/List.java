@@ -21,9 +21,8 @@ public class List<T> {
      * @param elements list elements
      */
     public List(T... elements) {
-       for (T element : elements) {
-           add(element);
-       }
+        for (T element : elements)
+            add(element);
     }
 
    /**

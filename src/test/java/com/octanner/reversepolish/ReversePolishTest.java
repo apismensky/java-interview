@@ -49,14 +49,4 @@ public class ReversePolishTest {
         assertEquals(0, ReversePolish.calculate(new String[]{}));
     }
 
-    @Test
-    public void testGetNumber() {
-        assertEquals(1, ReversePolish.getNumber("1"));
-    }
-
-    @Test(expected = NumberFormatException.class)
-    public void testGetNumberInvalid() {
-        ReversePolish.getNumber("ABC");
-    }
-
 }

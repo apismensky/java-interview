@@ -5,6 +5,8 @@ package com.octanner;
  */
 public class ArrayHelper {
     /**
+     * Complexity: Easy
+     *
      * Reverse elements in the array.
      *
      * @param input array
@@ -22,6 +24,8 @@ public class ArrayHelper {
     }
 
     /**
+     * Complexity: Easy
+     *
      * Searches the specified sorted array of integers for the specified value.
      * If it is not sorted, the results are undefined.
      * If the array contains multiple elements with the specified value, there is no guarantee which one will be found.

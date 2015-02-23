@@ -1,9 +1,10 @@
 package com.octanner.reversepolish;
 
-import com.google.common.annotations.VisibleForTesting;
 import com.octanner.lists.Stack;
 
 /**
+ * Complexity: Medium
+ *
  * Evaluate the value of an arithmetic expression in Reverse Polish Notation.
  * <p/>
  * Valid operators are +, -, *, /. Each operand may be an integer or another expression.
@@ -14,18 +15,12 @@ import com.octanner.lists.Stack;
  */
 public class ReversePolish {
 
-
-    public static int calculate(String[] args) {
-        if (args == null) {
+  public static int calculate(String[] args) {
+        if (args == null)
             throw new IllegalArgumentException("Array can not be null");
-        }
-
-        if (args.length == 0) {
+        if (args.length == 0)
             return 0;
-        }
-
         Stack<Integer> stack = new Stack<Integer>();
-
         for (String e : args) {
             Operation operation = Operation.value(e);
             if (operation != null) {
@@ -38,16 +33,11 @@ public class ReversePolish {
                     throw new IllegalArgumentException("Invalid input array", npe);
                 }
 
-            } else {
+            } else
                 // Put number in the stack
-                stack.push(getNumber(e));
-            }
+                stack.push(Integer.parseInt(e));
+
         }
         return stack.pop();
-    }
-
-    @VisibleForTesting
-    static int getNumber(String a) {
-        return Integer.parseInt(a);
     }
 }
