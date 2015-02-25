@@ -32,7 +32,7 @@ public class ReversePolishTest {
         assertEquals(3, ReversePolish.calculate(new String[]{"1", "1", "2", "+"}));
     }
 
-    // ["2", "1", "+", "3", "*"] -> ((2 + 1) + 3) -> 6
+    // ["2", "1", "+", "3", "*"] -> ((2 + 1) * 3) -> 9
     @Test
     public void testCalculateComplex() {
         assertEquals(9, ReversePolish.calculate(new String[]{"2", "1", "+", "3", "*"}));
