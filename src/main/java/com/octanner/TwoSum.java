@@ -11,8 +11,8 @@ package com.octanner;
  * Because nums[0] + nums[1] = 2 + 7 = 9,
  * return [0, 1].
  */
-public class TwoSum {
-    public static int[] twoSum(int[] nums, int target) {
+class TwoSum {
+    static int[] twoSum(int[] nums, int target) {
         if (nums.length < 2)
             throw new IllegalArgumentException("Array size should be greater or equals 2");
 
