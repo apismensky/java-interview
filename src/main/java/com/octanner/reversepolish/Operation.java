@@ -2,25 +2,21 @@ package com.octanner.reversepolish;
 
 public enum Operation {
     PLUS("+", new OperationAction() {
-        @Override
         public int apply(int a, int b) {
             return a + b;
         }
     }),
     MINUS("-", new OperationAction() {
-        @Override
         public int apply(int a, int b) {
             return a - b;
         }
     }),
     MULT("*", new OperationAction() {
-        @Override
         public int apply(int a, int b) {
             return a * b;
         }
     }),
     DIV("/", new OperationAction() {
-        @Override
         public int apply(int a, int b) {
             return a / b;
         }

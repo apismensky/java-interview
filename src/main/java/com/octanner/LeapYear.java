@@ -8,14 +8,7 @@ package com.octanner;
  * but the century years 1700, 1800, and 1900 are not.
  */
 class LeapYear {
-
     static boolean isLeapYear(int year) {
-        if (year % 4 == 0) {
-            if (year % 100 == 0 && !(year % 400 == 0))
-                return false;
-            else
-                return true;
-        }
-        return false;
+        return year % 4 == 0 && !(year % 100 == 0 && year % 400 != 0);
     }
 }
