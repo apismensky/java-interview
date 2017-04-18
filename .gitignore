@@ -1,7 +1,7 @@
 target/
 
 .idea/
-
+.gradle/
 .idea_modules/
 
 *.ipr
