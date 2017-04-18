@@ -1,31 +1,17 @@
 package com.apismensky.reversepolish;
 
+import java.util.function.BinaryOperator;
+
 public enum Operation {
-    PLUS("+", new OperationAction() {
-        public int apply(int a, int b) {
-            return a + b;
-        }
-    }),
-    MINUS("-", new OperationAction() {
-        public int apply(int a, int b) {
-            return a - b;
-        }
-    }),
-    MULT("*", new OperationAction() {
-        public int apply(int a, int b) {
-            return a * b;
-        }
-    }),
-    DIV("/", new OperationAction() {
-        public int apply(int a, int b) {
-            return a / b;
-        }
-    });
+    PLUS("+", (a, b) -> a + b),
+    MINUS("-", (a, b) -> a - b),
+    MULT("*", (a, b) -> a * b),
+    DIV("/", (a, b) -> a / b);
 
     private String sign;
-    private OperationAction action;
+    private BinaryOperator<Integer> action;
 
-    Operation(String sign, OperationAction action) {
+    Operation(String sign, BinaryOperator<Integer> action) {
         this.sign = sign;
         this.action = action;
     }
@@ -34,7 +20,7 @@ public enum Operation {
         return sign;
     }
 
-    public OperationAction getAction() {
+    public BinaryOperator<Integer> getAction() {
         return action;
     }
 

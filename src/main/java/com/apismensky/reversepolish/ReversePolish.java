@@ -20,7 +20,7 @@ public class ReversePolish {
             throw new IllegalArgumentException("Array can not be null");
         if (args.length == 0)
             return 0;
-        Stack<Integer> stack = new Stack<Integer>();
+        Stack<Integer> stack = new Stack<>();
         for (String e : args) {
             Operation operation = Operation.value(e);
             if (operation != null) {
