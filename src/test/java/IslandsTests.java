@@ -1,4 +1,4 @@
-import com.octanner.Islands;
+import com.apismensky.Islands;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
