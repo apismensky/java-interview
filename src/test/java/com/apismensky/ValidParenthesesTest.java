@@ -17,7 +17,7 @@ public class ValidParenthesesTest {
         assertTrue(ValidParentheses.isValid(""));
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void testOtherChars() {
         ValidParentheses.isValid("ABC");
     }

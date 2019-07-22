@@ -1,9 +1,12 @@
 package com.apismensky;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
-import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
-import java.util.Set;
+import java.util.Queue;
 
 /**
  * There are a total of n courses you have to take, labeled from 0 to n - 1.
@@ -27,60 +30,61 @@ import java.util.Set;
  * The input prerequisites is a graph represented by a list of edges, not adjacency matrices.
  * Read more about how a graph is represented.
  * You may assume that there are no duplicate edges in the input prerequisites.
+
+ *
  */
 public class CourseSchedule {
     public static boolean canFinish(int numCourses, int[][] prerequisites) {
-        if (numCourses < 0)
-            throw new IllegalArgumentException("numCourses < 0");
-        if (prerequisites.length > 0)
-            for (int[] p : prerequisites)
-                if (p.length != 2)
-                    throw new IllegalArgumentException("Invalid prerequisites: one ore more edges contains !=2 elements");
 
-
-        if (prerequisites.length == 0 || numCourses == 0)
+        if (numCourses == 0) {
             return true;
-
-        // Structure that represents prerequisites
-        // Key is the number of the course, Set<Integer> - set of prerequisites
-        Map<Integer, Set<Integer>> adj = new HashMap<Integer, Set<Integer>>();
-        for (int[] p : prerequisites) {
-            if (!adj.containsKey(p[0])) adj.put(p[0], new HashSet<Integer>());
-            Set<Integer> prereq = adj.get(p[0]);
-            prereq.add(p[1]);
-            adj.put(p[0], prereq);
         }
-        boolean visited[] = new boolean[numCourses-1];
-        int count = 0;
-        for (Integer key: adj.keySet()) {
-            count++;
-            visited[key] = true;
-            DFS(adj.get(key), adj, visited);
-        }
-        System.out.println(adj);
 
-        return false;
+        if (numCourses < 0) {
+            throw new IllegalArgumentException("numCourses can not be negative");
+        }
+
+        int[] indegree = new int[numCourses];
+        Map<Integer, List<Integer>> next = new HashMap<>();
+
+        for (int i = 0; i < prerequisites.length; i++) {
+            int[] pair = prerequisites[i];
+            indegree[pair[1]]++;
+            List<Integer> linked = next.get(pair[0]);
+            if (linked == null) {
+                List<Integer> connected = new ArrayList<>();
+                connected.add(pair[1]);
+                next.put(pair[0], connected);
+            }
+            else {
+                linked.add(pair[1]);
+            }
+        }
+
+        Queue<Integer> roots = new LinkedList<>();
+        for (int i = 0; i < indegree.length; i++) {
+            if (indegree[i] == 0) {
+                roots.add(i);
+            }
+        }
+
+        List<Integer> traversal = new ArrayList<>();
+        while (!roots.isEmpty()) {
+            Integer current = roots.poll(); // current root node
+            traversal.add(current);
+            List<Integer> nextNodes = next.get(current);
+            if (nextNodes == null) {
+                continue;
+            }
+            for (Integer nextNode: nextNodes) {
+                indegree[nextNode]--;
+                if (indegree[nextNode] == 0) {
+                    roots.add(nextNode);
+                }
+            }
+        }
+
+        return numCourses == traversal.size();
     }
 
-    public static class TreeNode {
-        private final int course;
-        private Set<TreeNode> prerequisites;
-
-        public TreeNode(int course) {
-            this.course = course;
-            this.prerequisites = new HashSet<TreeNode>();
-        }
-
-        public int getCourse() {
-            return this.course;
-        }
-
-    }
-
-    /**
-     *
-     */
-    private static  void DFS(Set prereq, Map<Integer, Set<Integer>> adj, boolean[] visited) {
-
-    }
 }

@@ -14,9 +14,6 @@ import java.util.regex.Pattern;
 
 public class ValidParentheses {
 
-    public static final String REGEX = "^[\\{\\}\\(\\)\\[\\]]{0,}$";
-    public static final Pattern PATTERN = Pattern.compile(REGEX);
-
     private enum Matching {
         CURLY ('{', '}'),
         SQUARE('[', ']'),
@@ -25,7 +22,7 @@ public class ValidParentheses {
         private char l;
         private char r;
 
-        private Matching(char l, char r) {
+        Matching(char l, char r) {
             this.l = l;
             this.r = r;
         }
@@ -42,10 +39,7 @@ public class ValidParentheses {
     public static boolean isValid(String s) {
         if (s == null)
             throw new IllegalArgumentException("Can not pass null");
-        if (!PATTERN.matcher(s).find())
-            throw new IllegalArgumentException("Invalid character input: " + s);
-
-        Stack<Character> stack = new Stack<Character>();
+        Stack<Character> stack = new Stack<>();
         for (int i = 0; i < s.length(); i++) {
             char c = s.charAt(i);
             if (!stack.isEmpty()) {

@@ -27,8 +27,6 @@ public class RotateImage {
         if (n > 0 && n != matrix[0].length) {
             throw new IllegalArgumentException("Can process only arrays of N * N");
         }
-//        System.out.println("Before: ");
-//        prn(matrix);
         int[][] res = new int[n][n];
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
@@ -40,8 +38,31 @@ public class RotateImage {
                 matrix[i][j] = res[i][j];
             }
         }
-//        System.out.println("After: ");
-//        prn(matrix);
+    }
+
+    /**
+     *  1  2  3  4              13  9  5  1
+     *  5  6  7  8  =>          14 10  6  2
+     *  9 10 11 12              15 11  7  3
+     * 13 14 15 16              16 12  8  4
+     * @param matrix
+     */
+    public static void rotate2(int[][] matrix) {
+        int n = matrix.length;
+        for (int i = 0; i < (n + 1)/2; i++) {
+            for (int j = 0; j < n / 2 ; j++) {
+                int first = matrix[i][j];
+                int second = matrix[j][n-1-i];
+                int third = matrix[n-1-i][n-1-j];
+                int fourth = matrix[n-1-j][i];
+                matrix[i][j] = fourth;
+                matrix[j][n-1-i] = first;
+                matrix[n-1-i][n-1-j] = second;
+                matrix[n-1-j][i] = third;
+                prn(matrix);
+            }
+        }
+
     }
 
     /**
@@ -52,5 +73,6 @@ public class RotateImage {
         for (int[] row : matrix) {
             System.out.println(Arrays.toString(row));
         }
+        System.out.println();
     }
 }

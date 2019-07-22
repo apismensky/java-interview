@@ -1,6 +1,5 @@
 package com.apismensky;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 
@@ -24,22 +23,17 @@ public class CourseScheduleTest {
         assertTrue(CourseSchedule.canFinish(-2, new int[][]{}));
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void testInvalidPrerequisites() {
-        assertTrue(CourseSchedule.canFinish(2, new int[][]{ {1,0,0} }));
-    }
-
-    @Ignore
+    @Test
     public void testCan() {
         assertTrue(CourseSchedule.canFinish(2, new int[][]{{1, 0}}));
     }
 
-    @Ignore
+    @Test
     public void testCan2() {
-        assertTrue(CourseSchedule.canFinish(5, new int[][]{{0,1}, {1,5}, {1,2}, {2,4}}));
+        assertTrue(CourseSchedule.canFinish(5, new int[][]{{0,1}, {1,4}, {1,2}, {2,3}}));
     }
 
-    @Ignore
+    @Test
     public void testCant() {
         assertFalse(CourseSchedule.canFinish(2, new int[][]{{1, 0}, {0, 1}}));
     }
