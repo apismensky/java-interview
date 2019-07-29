@@ -24,6 +24,8 @@ public class MinStack {
     private int min = Integer.MAX_VALUE;
 
     public void push(int x) {
+        // only push the old minimum value when the current
+        // minimum value changes after pushing the new value x
         if (x <= min) {
             this.head = new N(head, min);
             min = x;

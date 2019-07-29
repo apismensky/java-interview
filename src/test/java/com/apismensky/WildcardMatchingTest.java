@@ -1,13 +1,13 @@
 package com.apismensky;
 
-import static com.apismensky.WildcarMatching.isMatch;
+import static com.apismensky.WildcardMatching.isMatch;
 import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertFalse;
 
 import org.junit.Ignore;
 import org.junit.Test;
 
-public class WildcarMatchingTest {
+public class WildcardMatchingTest {
 
     @Test
     public void test1() {

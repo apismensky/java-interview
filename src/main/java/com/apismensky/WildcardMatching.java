@@ -14,7 +14,7 @@ import java.util.regex.Pattern;
  * s could be empty and contains only lowercase letters a-z.
  * p could be empty and contains only lowercase letters a-z, and characters like ? or *.
  */
-public class WildcarMatching {
+public class WildcardMatching {
     public static boolean isMatch(String str, String pattern) {
         return Pattern.compile(pattern.replaceAll("\\*+", "[a-z]*").replace("?", "[a-z]"))
                       .matcher(str)
