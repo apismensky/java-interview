@@ -56,7 +56,7 @@ public class List<T> {
      * @return the instance of the list
      */
     public List<T> add(T value) {
-        head = new Node<T>(head, value);
+        head = new Node<>(head, value);
         size++;
         return this;
     }

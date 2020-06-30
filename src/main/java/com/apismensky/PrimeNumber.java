@@ -4,7 +4,7 @@ package com.apismensky;
  * A prime number is a natural number that has exactly two distinct natural number divisors: 1 and itself.
  * Count the number of prime numbers less than a non-negative number, n
  * <p/>
- * Solution by Sieve of Eratosthenes algorithm https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
+ * NestedWeightListSumII by Sieve of Eratosthenes algorithm https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
  */
 public class PrimeNumber {
     /**

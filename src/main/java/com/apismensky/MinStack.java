@@ -22,6 +22,10 @@ class MinStack {
         return head.min;
     }
 
+    public boolean isEmpty() {
+        return head == null;
+    }
+
     private class Node {
         int val;
         int min;

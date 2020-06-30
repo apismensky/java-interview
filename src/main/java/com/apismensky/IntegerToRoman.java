@@ -55,17 +55,19 @@ public class IntegerToRoman {
             num /= 10;
             RomanToDec rl = RomanToDec.getRoman(position);
             StringBuilder digitRoman = new StringBuilder();
-            if (digit > 0 && digit < 4)
-                for (int i = 0; i < digit; i++)
+            if (digit > 0 && digit < 4) {
+                for (int i = 0; i < digit; i++) {
                     digitRoman.append(rl);
-            else if (digit == 4)
+                }
+            } else if (digit == 4) {
                 digitRoman.append(rl).append(rl.value5);
-            else if (digit == 9)
+            } else if (digit == 9) {
                 digitRoman.append(rl).append(rl.value10);
-            else if (digit > 4 && digit < 9) {
+            } else if (digit > 4 && digit < 9) {
                 digitRoman.append(rl.value5);
-                for (int i=0; i<digit-5;i++)
+                for (int i = 0; i < digit - 5; i++) {
                     digitRoman.append(rl);
+                }
             }
             //System.out.println(digit + " -> " + digitRoman);
             position++;

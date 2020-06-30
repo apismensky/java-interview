@@ -16,11 +16,6 @@ public class RomanToIntegerTest {
         RomanToInteger.romanToInt("");
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void testInvalidCharacters() {
-        RomanToInteger.romanToInt("QQQ");
-    }
-
     @Test
     public void testI() {
         assertEquals(1, RomanToInteger.romanToInt("I"));
